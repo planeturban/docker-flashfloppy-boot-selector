@@ -40,11 +40,10 @@ RUN apt-get update && \
 	apt-get -y autoremove && \
 	apt-get install -y python
 
-ENV PATH /opt/amiga/bin:$PATH
-ENV LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH_PATH
-
+ENV PATH /opt/amiga/bin:/usr/local/bin:$PATH
+ENV LD_LIBRARY_PATH /opt/amiga/lib:/usr/local/lib:$LD_LIBRARY_PATH_PATH
 ENV MAKE_OPTS ""
 
-CMD git clone https://github.com/keirf/HxC_FF_File_Selector.git && cd HxC_FF_File_Selector && make $MAKE_OPTS release && zip -r /output/HxC_Compat_Mode HxC_Compat_Mode 
+CMD git clone https://github.com/keirf/HxC_FF_File_Selector.git && cd HxC_FF_File_Selector && make $MAKE_OPTS release && zip -r /output/HxC_Compat_Mode HxC_Compat_Mode && cd .. && rm -rf HxC_FF_File_Selector
 
 VOLUME /output
