@@ -1,5 +1,4 @@
-#FROM ubuntu:artful
-FROM ubuntu
+FROM ubuntu:artful
 
 ARG MAKE_OPTS 
 
