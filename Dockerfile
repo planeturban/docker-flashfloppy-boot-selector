@@ -43,8 +43,8 @@ RUN apt-get update && \
 ENV PATH /opt/amiga/bin:/usr/local/bin:$PATH
 ENV LD_LIBRARY_PATH /opt/amiga/lib:/usr/local/lib:$LD_LIBRARY_PATH_PATH
 ENV MAKE_OPTS ""
-ENV HASH ""
+ENV COMMIT ""
 
-CMD git clone https://github.com/keirf/HxC_FF_File_Selector.git && cd HxC_FF_File_Selector && git checkout $HASH && make $MAKE_OPTS release && zip -r /output/HxC_Compat_Mode HxC_Compat_Mode && cd .. && rm -rf HxC_FF_File_Selector
+CMD git clone https://github.com/keirf/HxC_FF_File_Selector.git && cd HxC_FF_File_Selector && git checkout $COMMIT && make $MAKE_OPTS release && zip -r /output/HxC_Compat_Mode HxC_Compat_Mode && cd .. && rm -rf HxC_FF_File_Selector
 
 VOLUME /output
