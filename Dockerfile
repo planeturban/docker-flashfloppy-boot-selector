@@ -1,4 +1,4 @@
-FROM ubuntu:artful
+FROM ubuntu:bionic
 
 ARG MAKE_OPTS 
 
@@ -9,13 +9,13 @@ RUN apt-get update && \
 	LC_ALL=C.UTF-8 add-apt-repository -y ppa:vriviere/ppa && \
 	apt-get update && \
 	cd && \
+	apt-get install -y cross-mint-essential && \
 	git clone https://github.com/bebbo/amiga-gcc && \
 	cd amiga-gcc && \
 	make update && \
 	make $MAKE_OPTS all && \
 	cd && \
 	rm -rf amiga-gcc && \
-	apt-get install -y cross-mint-essential && \
 	wget -O- http://www.exe2adf.com/downloads/exe2adf-v03e-linux.tar.gz | tar xvfz - && \
 	mv exe2adf-linux64bit /usr/local/bin/exe2adf && \
 	rm exe2adf-linux32bit && \
