@@ -4,7 +4,7 @@ ARG MAKE_OPTS
 
 RUN apt-get update && \
 	apt-get update && \
-	apt-get install -y make git gcc g++ lhasa libgmp-dev libmpfr-dev libmpc-dev flex gettext texinfo wget rsync python zip software-properties-common && \
+	apt-get install -y make git gcc g++ bison lhasa libgmp-dev libmpfr-dev libmpc-dev flex gettext texinfo wget rsync python zip software-properties-common && \
 	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4AAD3A5DB5690522 && \
 	LC_ALL=C.UTF-8 add-apt-repository -y ppa:vriviere/ppa && \
 	apt-get update && \
